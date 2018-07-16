@@ -71,3 +71,34 @@ function daysInMonth(month, leapYear) {
   console.log(result);
   return result;
 }
+
+function rockPaperScissors(userMove) {
+  let result = '';
+  const compMove = Math.floor(Math.random() * 3) + 1;
+  if (!userMove || typeof userMove !== 'number' || userMove < 1 || userMove > 3) {
+    throw 'Invalid move';
+  } else {
+    switch(userMove, compMove) {
+      case userMove === compMove:
+        result = 'Tied'; 
+        break;
+      case userMove === 1 && compMove === 3:
+      case userMove === 2 && compMove === 1:
+      case userMove === 3 && compMove === 2:
+        result = 'User wins';
+        break;
+      default:
+        result = 'Comp wins';
+        break;
+    }
+  }
+  console.log(result);
+  return result;
+}
+
+rockPaperScissors(1);
+rockPaperScissors(2);
+rockPaperScissors(3);
+rockPaperScissors(6);
+rockPaperScissors();
+rockPaperScissors('hello');
