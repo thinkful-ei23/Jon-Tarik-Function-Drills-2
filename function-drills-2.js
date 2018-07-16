@@ -77,24 +77,15 @@ function rockPaperScissors(userMove) {
   const compMove = Math.floor(Math.random() * 3) + 1;
   if (!userMove || typeof userMove !== 'number' || userMove < 1 || userMove > 3) {
     throw 'Invalid move';
+  } else if ((userMove === 1 && compMove === 3) || (userMove === 2 && compMove === 1) || (userMove === 3 && compMove === 2)){
+    result = 'User wins';
   } else {
-    switch(userMove, compMove) {
-      case userMove === compMove:
-        result = 'Tied'; 
-        break;
-      case userMove === 1 && compMove === 3:
-      case userMove === 2 && compMove === 1:
-      case userMove === 3 && compMove === 2:
-        result = 'User wins';
-        break;
-      default:
-        result = 'Comp wins';
-        break;
-    }
+    result = 'Computer wins';
   }
   console.log(result);
   return result;
 }
+
 
 rockPaperScissors(1);
 rockPaperScissors(2);
